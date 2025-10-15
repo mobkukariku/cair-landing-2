@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import ContactForm from '../components/landing/ContactForm';
 import Footer from '../components/landing/Footer';
 
 export default function Home() {
@@ -53,6 +54,10 @@ export default function Home() {
           </a>
         </div>
       </main>
+
+      {/* Contact Form Section */}
+      <ContactForm />
+
       <Footer />
     </div>
   );
