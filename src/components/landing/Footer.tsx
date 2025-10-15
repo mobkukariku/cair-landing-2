@@ -1,10 +1,11 @@
 import Image from 'next/image';
+import {Container} from "@/components/landing/ui/Container";
 
 export default function Footer() {
   return (
     <footer className='w-full bg-[#01034D] text-white' suppressHydrationWarning>
-      <div className='py-12'>
-        <div className='mx-auto px-6 md:px-[120px]'>
+      <Container className='py-12'>
+        <div className='mx-auto '>
           <div className='flex flex-col lg:flex-row justify-between gap-8 lg:gap-12'>
             <div className='space-y-8'>
               <div className='flex items-center gap-3'>
@@ -79,7 +80,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
 
       <div className='py-6'>
         <div className='max-w-7xl mx-auto px-6'>
