@@ -1,6 +1,6 @@
 import Image from "next/image";
-import {Navbar} from "@/components/landing/ui/Navbar";
-import {LangToggle} from "@/components/landing/ui/LangToggle";
+import {Navbar} from "@/sections/header/ui/Navbar";
+import {LangToggle} from "@/sections/header/ui/LangToggle";
 import {Container} from "@/components/landing/ui/Container";
 
 export function Header() {

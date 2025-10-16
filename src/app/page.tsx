@@ -1,5 +1,6 @@
-import {Header} from "@/components/landing/ui/Header";
-import Footer from "@/components/landing/Footer";
+import {Header} from "@/sections/header/ui/Header";
+import Footer from "@/sections/footer/ui/Footer";
+import { MainSection } from "@/sections/main/ui/MainSection";
 
 
 
@@ -9,9 +10,7 @@ export default function Home() {
       <div
       >
         <Header />
-          <div className={"h-[80dvh]"}>
-
-          </div>
+        <MainSection />
         <Footer />
       </div>
   );
