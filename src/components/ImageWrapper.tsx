@@ -16,7 +16,6 @@ export default function ImageWrapper({
   useEffect(() => {
     setIsClient(true);
   }, []);
-
   if (!isClient) {
     return <Image {...props} />;
   }

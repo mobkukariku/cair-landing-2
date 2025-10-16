@@ -4,7 +4,7 @@ import { MainLargeTextSide } from "./MainLargeTextSide";
 
 export function HeroText() {
     return (
-        <Container className="flex flex-row mb-65 justify-between items-end">
+        <Container className="flex flex-row mb-45 justify-between items-end">
                 <MainLargeTextSide />
                 <ContactMessageSide />
         </Container>

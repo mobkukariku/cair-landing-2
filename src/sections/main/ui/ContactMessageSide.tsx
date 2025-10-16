@@ -1,34 +1,7 @@
 "use client";
 import { motion, Variants } from "framer-motion";
+import { buttonVariants, containerVariants, messageVariants } from "../model/variants";
 
-const containerVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      delayChildren: 0.8,
-      staggerChildren: 0.5,
-    },
-  },
-};
-
-const messageVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: "easeOut" },
-  },
-};
-
-// Кнопка появляется первой
-const buttonVariants: Variants = {
-  hidden: { opacity: 0,  },
-  visible: {
-    opacity: 1,
-
-    transition: { duration: 0.5, ease: "easeOut", delay: 0.2 },
-  },
-};
 
 export function ContactMessageSide() {
   return (
