@@ -1,19 +1,22 @@
+"use client"
+import {motion} from "framer-motion";
 import Image from "next/image";
-interface ServiceCardProps {
-    iconSrc: string;
-    title: string;
-    stack: string[];
-    description: string[];
-}
+import {ServiceCardProps} from "@/sections/services/model/types";
 
-export function ServiceCard({iconSrc, title, stack, description}:ServiceCardProps) {
+
+
+
+
+export function ServiceCard({id, iconSrc, title,  onClick}: ServiceCardProps) {
     return (
-        <div className="bg-white/10 backdrop-blur-md p-8 max-w-[315px] h-[200px] rounded-3xl border border-white/25 flex flex-col justify-between gap-4">
-            <Image src={iconSrc} alt={title} width={40} height={40}  />
-            <div className="flex flex-row justify-between items-end">
-                <h3 className="text-2xl font-semibold">
-                    {title}
-                </h3>
+        <motion.div
+            layoutId={id}
+            onClick={onClick}
+            className={"border shadow-2xl flex flex-col justify-between border-white/30 h-[200px] w-[313px] bg-white/10 rounded-3xl p-8"}
+        >
+            <Image src={iconSrc} alt={title} width={45} height={45} />
+            <div className={"flex justify-between items-end gap-3 w-full"}>
+                <h3 className="text-white text-2xl font-medium leading-7 mt-5">{title}</h3>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -23,10 +26,11 @@ export function ServiceCard({iconSrc, title, stack, description}:ServiceCardProp
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    >
+                >
                     <polyline points="6 9 12 15 18 9" />
                 </svg>
             </div>
-        </div>
+        </motion.div>
     )
 }
+

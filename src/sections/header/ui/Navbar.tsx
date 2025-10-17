@@ -4,6 +4,10 @@ import { useState } from "react";
 
 const navItems = ["Home", "Services", "Why us", "Partners"];
 
+
+
+
+
 export function Navbar() {
     const [active, setActive] = useState("Home");
 
