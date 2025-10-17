@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @font-face {
   font-family: 'SF Pro Display';
@@ -16,19 +16,76 @@
 }
 @font-face {
   font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SF Pro Display';
   src: url('/fonts/SF-Pro-Display-Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
-html, body {
-  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+html,
+body {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(45deg, #0047ab, #01142a);
+  background: #000;
   color: white;
-  background: black;
+  position: relative;
+}
+
+/* --- BACKGROUND PATTERN WITH VERTICAL LINES AND NOISE --- */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: 
+    /* Vertical lines every 72px - more visible */ repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 71px,
+      rgba(255, 255, 255, 0.12) 71px,
+      rgba(255, 255, 255, 0.12) 72px,
+      transparent 72px,
+      transparent 143px,
+      rgba(255, 255, 255, 0.12) 143px,
+      rgba(255, 255, 255, 0.12) 144px
+    ),
+    /* Noise texture */
+      repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.03) 0px,
+        transparent 1px,
+        transparent 2px,
+        rgba(255, 255, 255, 0.03) 3px
+      ),
+    /* Base gradient */
+      linear-gradient(90deg, #0a1a2e 0%, #0d2135 50%, #0a1a2e 100%);
+  pointer-events: none;
+}
+
+/* --- NOISE EFFECT OVERLAY --- */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.15;
+  pointer-events: none;
 }
 
 .text-container {
@@ -39,35 +96,53 @@ html, body {
 
 /* --- BLUE GLASS THEME COLORS --- */
 :root {
-  --color-bg1: rgb(10, 60, 180);         /* deep blue */
-  --color-bg2: rgb(3, 10, 30);           /* dark navy */
-  --color1: 0, 163, 255;                 /* sky blue blob */
-  --color2: 90, 120, 255;                /* indigo blend */
-  --color3: 20, 200, 255;                /* cyan highlight */
-  --color4: rgba(15, 20, 40, 0.5);       /* shadow blob */
-  --color5: 100, 180, 255;               /* light edge */
-  --color-interactive: 110, 190, 255;    /* interactive bright */
+  --color-bg1: rgb(10, 60, 180); /* deep blue */
+  --color-bg2: rgb(3, 10, 30); /* dark navy */
+  --color1: 0, 163, 255; /* sky blue blob */
+  --color2: 90, 120, 255; /* indigo blend */
+  --color3: 20, 200, 255; /* cyan highlight */
+  --color4: rgba(15, 20, 40, 0.5); /* shadow blob */
+  --color5: 100, 180, 255; /* light edge */
+  --color-interactive: 110, 190, 255; /* interactive bright */
   --circle-size: 80%;
   --blending: hard-light;
 }
 
 /* --- ANIMATIONS --- */
 @keyframes moveInCircle {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(180deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes moveVertical {
-  0% { transform: translateY(-50%); }
-  50% { transform: translateY(50%); }
-  100% { transform: translateY(-50%); }
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
 }
 
 @keyframes moveHorizontal {
-  0% { transform: translateX(-50%) translateY(-10%); }
-  50% { transform: translateX(50%) translateY(10%); }
-  100% { transform: translateX(-50%) translateY(-10%); }
+  0% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+  50% {
+    transform: translateX(50%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10%);
+  }
 }
 
 /* --- MAIN GRADIENT BACKGROUND --- */
@@ -103,7 +178,12 @@ html, body {
 /* --- Floating blue blobs --- */
 .gradient-bg .g1 {
   position: absolute;
-  background: radial-gradient(circle at center, rgba(var(--color1), 0.9) 0, rgba(var(--color1), 0) 55%) no-repeat;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color1), 0.9) 0,
+      rgba(var(--color1), 0) 55%
+    )
+    no-repeat;
   mix-blend-mode: var(--blending);
   width: var(--circle-size);
   height: var(--circle-size);
@@ -116,7 +196,12 @@ html, body {
 
 .gradient-bg .g2 {
   position: absolute;
-  background: radial-gradient(circle at center, rgba(var(--color2), 0.85) 0, rgba(var(--color2), 0) 55%) no-repeat;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color2), 0.85) 0,
+      rgba(var(--color2), 0) 55%
+    )
+    no-repeat;
   mix-blend-mode: var(--blending);
   width: var(--circle-size);
   height: var(--circle-size);
@@ -129,7 +214,12 @@ html, body {
 
 .gradient-bg .g3 {
   position: absolute;
-  background: radial-gradient(circle at center, rgba(var(--color3), 0.85) 0, rgba(var(--color3), 0) 55%) no-repeat;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color3), 0.85) 0,
+      rgba(var(--color3), 0) 55%
+    )
+    no-repeat;
   mix-blend-mode: var(--blending);
   width: var(--circle-size);
   height: var(--circle-size);
@@ -142,7 +232,12 @@ html, body {
 
 .gradient-bg .g4 {
   position: absolute;
-  background: radial-gradient(circle at center, rgba(var(--color4), 0.7) 0, rgba(var(--color4), 0) 55%) no-repeat;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color4), 0.7) 0,
+      rgba(var(--color4), 0) 55%
+    )
+    no-repeat;
   mix-blend-mode: var(--blending);
   width: var(--circle-size);
   height: var(--circle-size);
@@ -155,7 +250,12 @@ html, body {
 
 .gradient-bg .g5 {
   position: absolute;
-  background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 55%) no-repeat;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color5), 0.8) 0,
+      rgba(var(--color5), 0) 55%
+    )
+    no-repeat;
   mix-blend-mode: var(--blending);
   width: calc(var(--circle-size) * 1.8);
   height: calc(var(--circle-size) * 1.8);
@@ -168,7 +268,12 @@ html, body {
 
 .gradient-bg .interactive {
   position: absolute;
-  background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.9) 0, rgba(var(--color-interactive), 0) 55%) no-repeat;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color-interactive), 0.9) 0,
+      rgba(var(--color-interactive), 0) 55%
+    )
+    no-repeat;
   mix-blend-mode: var(--blending);
   width: 100%;
   height: 100%;
