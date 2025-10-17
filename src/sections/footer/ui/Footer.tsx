@@ -3,7 +3,7 @@ import {Container} from "@/components/landing/ui/Container";
 
 export default function Footer() {
   return (
-    <footer className='w-full bg-[#01034D] text-white' suppressHydrationWarning>
+    <footer className='w-full snap-start  [scrollbar-width:none] [scroll-behavior:smooth] bg-[#01034D] text-white' suppressHydrationWarning>
       <Container className='py-12'>
         <div className='mx-auto '>
           <div className='flex flex-col lg:flex-row justify-between gap-8 lg:gap-12'>
