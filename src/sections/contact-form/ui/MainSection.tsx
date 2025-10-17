@@ -5,8 +5,8 @@ import { Container } from "@/components/landing/ui/Container";
 
 export default function Form() {
   return (
-    <Container>
-      <main className="flex items-center justify-center py-32 text-white">
+    <Container className={"h-full flex flex-col justify-center snap-start"}>
+      <main className="flex items-center justify-center  text-white">
       <div
         className="
           w-full
