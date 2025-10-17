@@ -1,8 +1,9 @@
 'use client';
 
 import { Container } from '@/components/landing/ui/Container';
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { AnimatePresence, motion, useInView } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { DetailedPartnerCard } from './DetailedPartnerCard';
 import { PartnerCard } from './PartnerCard';
 
 const letterVariant = {
@@ -19,23 +20,39 @@ const letterVariant = {
 };
 
 export function PartnersSection() {
+  const [openId, setOpenId] = useState<string | null>(null);
+
   const partners = [
     {
+      id: 'partner-1',
       logo: '/freedom-logo.png',
       title: 'FREEDOM HOLDING CORP.',
       description:
         'Development of the CPI.KZ portal for monitoring the inflation range',
+      tech: [
+        'PHP',
+        'Laravel',
+        'Vue.js',
+        'JS',
+        'Postgres',
+        'RabbitMQ',
+        'Keycloak',
+      ],
     },
     {
+      id: 'partner-2',
       logo: '/sdu.svg',
       title: 'SDU UNIVERSITY',
       description: 'Implementation of the Digital Integration Platform',
+      tech: ['React', 'Next.js', 'Node', 'Postgres', 'Docker'],
     },
     {
+      id: 'partner-3',
       logo: '/cloudy-logo.png',
       title: 'QCLOUDY',
       description:
         'Development of the CPI.KZ portal for monitoring the inflation range',
+      tech: ['TypeScript', 'NestJS', 'Redis', 'Kubernetes'],
     },
   ];
 
@@ -66,14 +83,43 @@ export function PartnersSection() {
         <div className='flex flex-nowrap gap-16 justify-center items-start max-w-7xl mx-auto'>
           {partners.map((partner, index) => (
             <PartnerCard
-              key={index}
+              key={partner.id}
+              id={partner.id}
               logo={partner.logo}
               title={partner.title}
               description={partner.description}
+              onClick={() => setOpenId(partner.id)}
               index={index}
             />
           ))}
         </div>
+
+        {/* Modal */}
+        <AnimatePresence>
+          {openId && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.6 }}
+              exit={{ opacity: 0 }}
+              key='overlay'
+              className='overlay'
+              onClick={() => setOpenId(null)}
+            />
+          )}
+
+          {openId && (
+            <DetailedPartnerCard
+              id={openId}
+              logo={partners.find(p => p.id === openId)?.logo || ''}
+              title={partners.find(p => p.id === openId)?.title || ''}
+              description={
+                partners.find(p => p.id === openId)?.description || ''
+              }
+              tech={partners.find(p => p.id === openId)?.tech || []}
+              onClick={() => setOpenId(null)}
+            />
+          )}
+        </AnimatePresence>
       </Container>
     </section>
   );
