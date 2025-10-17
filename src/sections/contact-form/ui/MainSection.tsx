@@ -1,28 +1,26 @@
-import React from "react";
-import LeftIntro from "./LeftIntro";
-import ContactForm from "./ContactForm";
-import { Container } from "@/components/landing/ui/Container";
+import { Container } from '@/components/landing/ui/Container';
+import ContactForm from './ContactForm';
+import LeftIntro from './LeftIntro';
 
 export default function Form() {
   return (
-    <Container className={"h-full flex flex-col justify-center snap-start"}>
-      <main className="flex items-center justify-center  text-white">
-      <div
-        className="
+    <Container className={'h-full flex flex-col justify-center snap-start'}>
+      <main className='flex items-center justify-center  text-white'>
+        <div
+          className='
           w-full
           flex flex-col lg:flex-row
           items-center justify-between
-          gap-12 lg:gap-20
-        "
-      >
-        <div className="flex-1 flex justify-center lg:justify-start">
-          <LeftIntro />
+          gap-12 lg:gap-20'
+        >
+          <div className='flex-1 flex justify-center lg:justify-start'>
+            <LeftIntro />
+          </div>
+          <div className='flex-1 flex justify-center lg:justify-end w-full'>
+            <ContactForm />
+          </div>
         </div>
-        <div className="flex-1 flex justify-center lg:justify-end w-full">
-          <ContactForm />
-        </div>
-      </div>
-    </main>
+      </main>
     </Container>
   );
 }
