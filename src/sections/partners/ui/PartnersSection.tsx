@@ -61,8 +61,8 @@ export function PartnersSection() {
   const title = 'Partners';
 
   return (
-    <section className='text-white my-24'>
-      <Container>
+    <section className='text-white snap-start h-screen flex '>
+      <Container className={"flex flex-col justify-center items-center"}>
         <h2
           ref={titleRef}
           className='text-center tracking-[-0.2rem] leading-6 font-semibold text-7xl mb-12 flex justify-center gap-1'

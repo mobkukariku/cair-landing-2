@@ -7,13 +7,12 @@ import { ServiceSection } from '@/sections/services/ui/ServiceSection';
 
 export default function Home() {
   return (
-    <div>
-      <Header />
-      <MainSection />
-      <ServiceSection />
-      <PartnersSection />
-      <Form />
-      <Footer />
+      <div className={"h-screen overflow-y-scroll snap-y snap-mandatory "}>
+          <MainSection />
+          <ServiceSection />
+          <PartnersSection />
+          <Form />
+          <Footer />
     </div>
   );
 }
