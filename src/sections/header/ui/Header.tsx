@@ -5,7 +5,7 @@ import {Container} from "@/components/landing/ui/Container";
 
 export function Header() {
     return (
-        <Container>
+        <Container className={"snap-start"}>
             <header className={"flex justify-between items-center py-10"} >
                 <Image src={"logo.svg"} alt={"logo"} width={150} height={150} />
                 <Navbar />

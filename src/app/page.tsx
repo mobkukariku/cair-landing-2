@@ -8,7 +8,8 @@ import {WhyUsSection} from "@/sections/why-us/ui/WhyUsSection";
 
 export default function Home() {
   return (
-      <div className={"h-screen overflow-y-scroll snap-y snap-mandatory "}>
+      <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
+          <Header />
           <MainSection />
           <ServiceSection />
           <WhyUsSection />

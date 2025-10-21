@@ -28,7 +28,7 @@ export function ServiceSection() {
 
 
     return (
-        <section className="text-white h-full flex flex-col snap-start">
+        <section id={"services"} className="text-white h-full flex flex-col snap-start">
             <Container className={"flex flex-grow flex-col items-center justify-center -mt-30"}>
                 <h2 className="text-center font-bold  text-7xl">Services</h2>
                 <div className="mt-30 flex flex-wrap gap-10 justify-center max-w-6xl mx-auto">

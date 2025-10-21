@@ -58,11 +58,11 @@ export function PartnersSection() {
   const title = 'Partners';
 
   return (
-    <section className='text-white snap-start h-screen flex'>
+    <section id={"partners"} className='text-white snap-start h-screen flex'>
       <Container className={'flex flex-col justify-center items-center'}>
         <h2
           ref={titleRef}
-          className='text-center tracking-[-0.2rem] leading-6 font-semibold text-7xl mb-24 flex justify-center gap-1'
+          className='text-center -mt-20 tracking-[-0.2rem] leading-6 font-semibold text-7xl mb-10 flex justify-center gap-1'
         >
           {title.split('').map((letter, index) => (
             <motion.span

@@ -4,8 +4,7 @@ import { Header } from "@/sections/header/ui/Header";
 
 export function MainSection() {
     return (
-        <section className="text-white snap-start h-screen w-full flex flex-col justify-between items-center">
-            <Header />
+        <section id={"home"} className="text-white h-screen w-full flex flex-col justify-between items-center">
             <div className="flex-grow flex flex-col items-center w-full gap-30 justify-center">
                 <HeroText />
             </div>
