@@ -1,6 +1,5 @@
 import { CompaniesOurWork } from "./CompaniesOurWork";
 import { HeroText } from "./HeroText";
-import { Header } from "@/sections/header/ui/Header";
 
 export function MainSection() {
     return (

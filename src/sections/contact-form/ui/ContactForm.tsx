@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import { motion, useInView } from "framer-motion";
+import {easeOut, motion, useInView} from "framer-motion";
 
 const pullupVariant = {
   initial: { y: 40, opacity: 0 },
   animate: (i: number) => ({
     y: 0,
     opacity: 1,
-    transition: { delay: i * 0.12, duration: 0.6, ease: "easeOut" },
+    transition: { delay: i * 0.12, duration: 0.6, ease: easeOut },
   }),
 };
 

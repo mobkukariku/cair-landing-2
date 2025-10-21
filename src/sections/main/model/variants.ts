@@ -1,4 +1,4 @@
-import { animate, Variants } from "framer-motion";
+import { Variants } from "framer-motion";
 
 export const containerVariants: Variants = {
     hidden: {},
@@ -26,17 +26,6 @@ export const buttonVariants: Variants = {
       transition: { duration: 0.5, ease: "easeOut", delay: 1.1 },
     },
   };
-  
-
-export const textPullUpVariant: Variants = {
-    hidden: {opacity: 0},
-    animate: (i: number) => ({
-        opacity: 1,
-        transition: {
-          delay: i * 0.1,
-        },
-    }),
-}
 
 export const pullupVariant = {
         initial: { y: 20, opacity: 0 },

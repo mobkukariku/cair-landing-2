@@ -4,8 +4,8 @@ import LeftIntro from './LeftIntro';
 
 export default function Form() {
   return (
-    <Container className={'h-full flex flex-col justify-center snap-start'}>
-      <main className='flex items-center justify-center  text-white'>
+    <Container  className={'h-full flex flex-col justify-center snap-start'}>
+      <section id={"contact"} className='flex items-center justify-center  text-white'>
         <div
           className='
           w-full
@@ -20,7 +20,7 @@ export default function Form() {
             <ContactForm />
           </div>
         </div>
-      </main>
+      </section>
     </Container>
   );
 }

@@ -7,6 +7,7 @@ const navItems = [
     { label: "Services", id: "services" },
     { label: "Why us", id: "why-us" },
     { label: "Partners", id: "partners" },
+    { label: "Contact", id: "contact" },
 ];
 
 export function Navbar() {
