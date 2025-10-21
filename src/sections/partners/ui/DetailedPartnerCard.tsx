@@ -38,7 +38,7 @@ export function DetailedPartnerCard({
 
       {/* Modal Card */}
       <div
-        className='fixed z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[500px]'
+        className='fixed z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-92'
         onClick={onClick}
       >
         <motion.div

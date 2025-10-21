@@ -48,7 +48,7 @@ export function PartnerCard({
           scale: isExpanded ? 0.8 : 1,
         }}
         transition={{ duration: 0.4, ease: [0.2, 0.6, 0.3, 1] }}
-        className={`relative flex flex-col items-center justify-center overflow-hidden w-92 ${
+        className={`relative flex flex-col items-center justify-center overflow-hidden w-[420px] ${
           title === 'FREEDOM HOLDING CORP.' ? 'scale-150' : ''
         }`}
         style={{ height: isExpanded ? 0 : 368 }}
