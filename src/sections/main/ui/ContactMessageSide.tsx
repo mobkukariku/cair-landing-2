@@ -4,7 +4,13 @@ import { buttonVariants, containerVariants, messageVariants } from "../model/var
 
 
 export function ContactMessageSide() {
-  return (
+    const handleScroll = (id: string) => {
+        const section = document.getElementById(id);
+        section?.scrollIntoView({ behavior: "smooth" });
+    };
+
+
+    return (
     <motion.aside
       className="flex flex-col gap-5 w-[400px]"
       aria-label="Summary and contact"
@@ -27,6 +33,7 @@ export function ContactMessageSide() {
         We help businesses run more efficiently while enhancing support quality
       </motion.p>
       <motion.button
+          onClick={() => handleScroll('contact')}
         variants={buttonVariants}
         className="bg-white/10 mt-4 border border-white/50 font-medium px-4 py-2 rounded-full"
       >
