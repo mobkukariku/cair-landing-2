@@ -41,7 +41,7 @@ export default function LeftIntro() {
 
   const elements = [
     // Контакты
-    <ul key='contacts' className='flex flex-col gap-3 text-base'>
+    <ul key='contacts' className='flex flex-col md:gap-3 text-base'>
       <li className='flex items-center gap-3'>
         <svg
           viewBox='0 0 24 24'
@@ -87,7 +87,7 @@ export default function LeftIntro() {
     <button
       key='btn'
       className='
-    inline-flex mt-12 items-center justify-center gap-2
+    inline-flex mt-6 md:mt-12 items-center justify-center gap-2
     px-10 py-2
     rounded-full
     text-white font-medium
@@ -115,11 +115,14 @@ export default function LeftIntro() {
   ];
 
   return (
-    <div ref={ref} className='flex flex-col gap-2 p-5 text-white'>
+    <div
+      ref={ref}
+      className='flex flex-col lg:items-start items-center gap-2 p-5 text-white'
+    >
       {/* Заголовок с анимацией букв */}
       <h1
         ref={titleRef}
-        className='text-[60px] mb-12 tracking-[-0.3rem] leading-6 sm:text-[70px] lg:text-[80px] font-semibold text-white flex flex-wrap gap-1'
+        className='text-6xl sm:text-7xl mb-12 tracking-[-0.3rem] leading-6 sm:text-[70px] lg:text-[80px] font-bold text-white flex flex-wrap gap-1'
       >
         {title.split('').map((letter, index) => (
           <motion.span
