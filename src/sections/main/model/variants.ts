@@ -1,14 +1,13 @@
-import { Variants } from "framer-motion";
+import { Variants, stagger } from "framer-motion";
 
 export const containerVariants: Variants = {
     hidden: {},
     visible: {
-      transition: {
-        delayChildren: 1.5,
-        staggerChildren: 0.3,
-      },
+        transition: {
+            delayChildren: stagger(0.3, { startDelay: 1.5 }),
+        },
     },
-  };
+};
   
 export const messageVariants: Variants = {
     hidden: { opacity: 0, y: 20 },

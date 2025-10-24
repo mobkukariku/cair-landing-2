@@ -1,26 +1,31 @@
-"use client"
-import {useState} from "react";
+"use client";
 
-const langs = ["KZ", "ENG", "RU"];
+import { useLangSwitch } from "@/hooks/useLangSwitch";
+
+const langs = {
+    en: "ENG",
+    kk: "KZ",
+    ru: "RU",
+};
 
 export function LangToggle() {
-    const [lang, setLang] = useState("ENG");
-
-    const changeLang = (lang: string) => {
-        setLang(lang);
-    }
+    const { currentLocale, switchLocale } = useLangSwitch();
 
     return (
-        <div className={"flex gap-3 flex-row"}>
-            {langs.map((item) => (
+        <div className="flex gap-3">
+            {Object.entries(langs).map(([key, label]) => (
                 <button
-                    key={item}
-                    onClick={() => changeLang(item)}
-                    className={`transition-colors font-bold ${lang === item ? "text-white" : "text-white/70"}`}
+                    key={key}
+                    onClick={() => switchLocale(key)}
+                    className={`transition-colors font-bold ${
+                        currentLocale === key
+                            ? "text-white underline underline-offset-4"
+                            : "text-white/70 hover:text-white"
+                    }`}
                 >
-                    {item}
+                    {label}
                 </button>
             ))}
         </div>
-    )
+    );
 }
