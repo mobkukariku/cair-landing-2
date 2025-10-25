@@ -2,10 +2,14 @@
 import { motion, useInView } from 'framer-motion';
 import React from 'react';
 import { pullupVariant } from '../model/variants';
+import {useTranslations} from "next-intl";
 
 export function MainLargeTextSide() {
-  const subText = 'A reliable IT partner you’ll want by your side.'.split(' ');
-  const mainText = 'Shaping your visions with a spark of innovation'.split(' ');
+    const t = useTranslations("main");
+
+
+    const subText = t('sub-title').split(' ');
+  const mainText = t('title').split(' ');
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true });
 

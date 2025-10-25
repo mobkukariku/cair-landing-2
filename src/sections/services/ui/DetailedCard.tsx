@@ -1,8 +1,11 @@
 import {motion} from "framer-motion";
 import Image from "next/image";
 import {DetailedCardProps} from "@/sections/services/model/types";
+import {useTranslations} from "next-intl";
 
 export function DetailedCard({id, iconSrc, title, onClick, stack, description}: DetailedCardProps){
+    const t = useTranslations("services")
+
     return (
         <div>
             <motion.div
@@ -42,7 +45,7 @@ export function DetailedCard({id, iconSrc, title, onClick, stack, description}: 
                         className="mt-6"
                     >
                         <div className="mb-5">
-                            <h4 className="text-white font-medium mb-3">Описание:</h4>
+                            <h4 className="text-white font-medium mb-3">{t("card-info.desc")}:</h4>
                             <ul className="list-disc pl-5 space-y-2">
                                 {description.map((item, index) => (
                                     <motion.li
@@ -59,7 +62,7 @@ export function DetailedCard({id, iconSrc, title, onClick, stack, description}: 
                         </div>
 
                         <div>
-                            <h4 className="text-white font-medium mb-3">Технологии:</h4>
+                            <h4 className="text-white font-medium mb-3">{t("card-info.tech")}:</h4>
                             <div className="flex flex-wrap gap-2">
                                 {stack.map((tech, index) => (
                                     <motion.span

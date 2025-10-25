@@ -1,17 +1,19 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 const navItems = [
-    { label: "Home", id: "home" },
-    { label: "Services", id: "services" },
-    { label: "Why us", id: "why-us" },
-    { label: "Partners", id: "partners" },
-    { label: "Contact", id: "contact" },
+    { label: "home", id: "home" },
+    { label: "services", id: "services" },
+    { label: "why-us", id: "why-us" },
+    { label: "partners", id: "partners" },
+    { label: "contact", id: "contact" },
 ];
 
 export function Navbar() {
     const [active, setActive] = useState("home");
+    const t = useTranslations("header.navbar");
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -20,11 +22,7 @@ export function Navbar() {
                     if (entry.isIntersecting) setActive(entry.target.id);
                 });
             },
-            {
-                root: null,
-                rootMargin: "0px",
-                threshold: 0.6,
-            }
+            { threshold: 0.6 }
         );
 
         navItems.forEach(({ id }) => {
@@ -40,64 +38,42 @@ export function Navbar() {
         section?.scrollIntoView({ behavior: "smooth" });
     };
 
+    const NavbarLayout = ({ position }: { position: "top" | "bottom" }) => (
+        <motion.div
+            key={`${position}-navbar`}
+            initial={{ y: position === "top" ? -80 : 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: position === "top" ? -80 : 100, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 200, damping: 25 }}
+            className={`fixed ${position === "top" ? "top-6" : "bottom-6"} left-1/2 -translate-x-1/2 z-50 w-fit rounded-full p-3 bg-white/10 border border-white/50 backdrop-blur-md flex gap-2`}
+        >
+            {navItems.map(({ label, id }) => (
+                <button
+                    key={id}
+                    onClick={() => handleScroll(id)}
+                    className={`relative px-6 py-2 font-medium rounded-full transition-colors duration-300 ${
+                        active === id ? "text-white" : "text-white/60 hover:text-white/80"
+                    }`}
+                >
+                    {active === id && (
+                        <motion.div
+                            layoutId="active-pill"
+                            className="absolute inset-0 bg-white/20 border border-white/30 rounded-full"
+                            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                        />
+                    )}
+                    <span className="relative z-10">{t(label)}</span>
+                </button>
+            ))}
+        </motion.div>
+    );
+
     return (
         <AnimatePresence>
             {active === "home" ? (
-                <motion.div
-                    key="top-navbar"
-                    initial={{ y: -80, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -80, opacity: 0 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 25 }}
-                    className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-fit rounded-full p-3 bg-white/10 border border-white/50 backdrop-blur-md flex gap-2"
-                >
-                    {navItems.map(({ label, id }) => (
-                        <button
-                            key={id}
-                            onClick={() => handleScroll(id)}
-                            className={`relative px-6 py-2 font-medium rounded-full transition-colors duration-300 ${
-                                active === id ? "text-white" : "text-white/60 hover:text-white/80"
-                            }`}
-                        >
-                            {active === id && (
-                                <motion.div
-                                    layoutId="active-pill"
-                                    className="absolute inset-0 bg-white/20 border border-white/30 rounded-full"
-                                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                                />
-                            )}
-                            <span className="relative z-10">{label}</span>
-                        </button>
-                    ))}
-                </motion.div>
+                <NavbarLayout position="top" />
             ) : (
-                <motion.div
-                    key="bottom-navbar"
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 100, opacity: 0 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 25 }}
-                    className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-fit rounded-full p-3 bg-white/10 border border-white/50 backdrop-blur-md flex gap-2"
-                >
-                    {navItems.map(({ label, id }) => (
-                        <button
-                            key={id}
-                            onClick={() => handleScroll(id)}
-                            className={`relative px-6 py-2 font-medium rounded-full transition-colors duration-300 ${
-                                active === id ? "text-white" : "text-white/60 hover:text-white/80"
-                            }`}
-                        >
-                            {active === id && (
-                                <motion.div
-                                    layoutId="active-pill"
-                                    className="absolute inset-0 bg-white/20 border border-white/30 rounded-full"
-                                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                                />
-                            )}
-                            <span className="relative z-10">{label}</span>
-                        </button>
-                    ))}
-                </motion.div>
+                <NavbarLayout position="bottom" />
             )}
         </AnimatePresence>
     );

@@ -14,12 +14,12 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body className={`antialiased`} suppressHydrationWarning>
-        <main
+        <div
           className={'text-container'}
           style={{ position: 'relative', zIndex: 1 }}
         >
           {children}
-        </main>
+        </div>
         <div className='gradient-bg'>
           <svg xmlns='http://www.w3.org/2000/svg'>
             <defs>
@@ -43,8 +43,6 @@ export default function RootLayout({
             <div className='g1'></div>
             <div className='g2'></div>
             <div className='g3'></div>
-            {/* <div className="g4"></div>
-            <div className="g5"></div> */}
             <div className='interactive'></div>
           </div>
         </div>
