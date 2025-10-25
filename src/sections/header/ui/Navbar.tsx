@@ -1,5 +1,5 @@
 "use client";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 
@@ -38,14 +38,16 @@ export function Navbar() {
         section?.scrollIntoView({ behavior: "smooth" });
     };
 
-    const NavbarLayout = ({ position }: { position: "top" | "bottom" }) => (
+    return (
         <motion.div
-            key={`${position}-navbar`}
-            initial={{ y: position === "top" ? -80 : 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: position === "top" ? -80 : 100, opacity: 0 }}
+            initial={{ y: 0, opacity: 0 }}
+            animate={{
+                bottom: active === "home" ? "unset" : "1.5rem",
+                top: active === "home" ? "0 rem" : "unset",
+                opacity: 1,
+            }}
             transition={{ type: "spring", stiffness: 200, damping: 25 }}
-            className={`fixed ${position === "top" ? "top-6" : "bottom-6"} left-1/2 -translate-x-1/2 z-50 w-fit rounded-full p-3 bg-white/10 border border-white/50 backdrop-blur-md flex gap-2`}
+            className="fixed left-1/2 -translate-x-1/2 z-50 w-fit rounded-full p-3 bg-white/10 border border-white/50 backdrop-blur-md flex gap-2"
         >
             {navItems.map(({ label, id }) => (
                 <button
@@ -66,15 +68,5 @@ export function Navbar() {
                 </button>
             ))}
         </motion.div>
-    );
-
-    return (
-        <AnimatePresence>
-            {active === "home" ? (
-                <NavbarLayout position="top" />
-            ) : (
-                <NavbarLayout position="bottom" />
-            )}
-        </AnimatePresence>
     );
 }
