@@ -1,0 +1,21 @@
+{
+  "tagline": "A reliable IT partner you'll want by your side.",
+  "office": {
+    "title": "Almaty Office",
+    "address": "Head Office: Almaty region, Kaskelen city, Abylaikhan street, 1/1",
+    "email": "Email: cair@sdu.edu.kz",
+    "phone": "Call: +7 (777) 667 6904"
+  },
+  "links": {
+    "title": "Quick Links",
+    "home": "Home",
+    "services": "Services",
+    "whyUs": "Why us",
+    "partners": "Partners",
+    "contact": "Contact"
+  },
+  "social": {
+    "title": "Follow Us"
+  },
+  "copyright": "Copyright © 2025. All Rights Reserved. Site by CAIR"
+}

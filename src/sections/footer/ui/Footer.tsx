@@ -1,7 +1,9 @@
 import { Container } from '@/components/landing/ui/Container';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 export default function Footer() {
+  const t = useTranslations('footer');
   return (
     <footer
       className='w-full snap-start [scrollbar-width:none] [scroll-behavior:smooth] bg-[#01034D] text-white'
@@ -23,49 +25,50 @@ export default function Footer() {
                 />
               </div>
               <p className='font-semibold text-[16px] md:text-[17px] lg:text-[18px] max-w-xs'>
-                A reliable IT partner you&apos;ll want by your side.
+                {t('tagline')}
               </p>
             </div>
 
             {/* Almaty Office */}
             <div className='space-y-4 md:space-y-6 lg:space-y-8'>
               <h3 className='text-[18px] md:text-[19px] lg:text-[20px] font-bold'>
-                Almaty Office
+                {t('office.title')}
               </h3>
               <div className='space-y-4 md:space-y-6 lg:space-y-8 text-[16px] md:text-[17px] lg:text-[18px] text-white font-medium'>
-                <p className='max-w-xs'>
-                  Head Office: Almaty region, Kaskelen city, Abylaikhan street,
-                  1/1
-                </p>
-                <p>Email: cair@sdu.edu.kz</p>
-                <p>Call: +7 (777) 667 6904</p>
+                <p className='max-w-xs'>{t('office.address')}</p>
+                <p>{t('office.email')}</p>
+                <p>{t('office.phone')}</p>
               </div>
             </div>
 
             {/* Quick Links */}
             <div className='space-y-4 md:space-y-6 lg:space-y-8'>
               <h3 className='text-[18px] md:text-[19px] lg:text-[20px] font-bold'>
-                Quick Links
+                {t('links.title')}
               </h3>
               <nav className='space-y-2 md:space-y-3'>
-                {['Home', 'Services', 'Why us', 'Partners', 'Contact'].map(
-                  item => (
-                    <a
-                      key={item}
-                      href='#'
-                      className='block text-[16px] md:text-[17px] lg:text-[18px] text-white font-medium hover:opacity-80 transition-opacity'
-                    >
-                      {item}
-                    </a>
-                  )
-                )}
+                {[
+                  { key: 'home', label: t('links.home') },
+                  { key: 'services', label: t('links.services') },
+                  { key: 'whyUs', label: t('links.whyUs') },
+                  { key: 'partners', label: t('links.partners') },
+                  { key: 'contact', label: t('links.contact') },
+                ].map(item => (
+                  <a
+                    key={item.key}
+                    href='#'
+                    className='block text-[16px] md:text-[17px] lg:text-[18px] text-white font-medium hover:opacity-80 transition-opacity'
+                  >
+                    {item.label}
+                  </a>
+                ))}
               </nav>
             </div>
 
             {/* Follow Us */}
             <div className='space-y-4 md:space-y-6 lg:space-y-8'>
               <h3 className='text-[18px] md:text-[19px] lg:text-[20px] font-bold'>
-                Follow Us
+                {t('social.title')}
               </h3>
               <div className='flex gap-4 md:gap-5 lg:gap-6'>
                 {[
@@ -99,7 +102,7 @@ export default function Footer() {
       <div className='py-4 md:py-5 lg:py-6'>
         <div className='max-w-7xl mx-auto px-4 md:px-6'>
           <p className='text-center font-medium text-[#FFFFFF80] text-[14px] md:text-[16px] lg:text-[17px]'>
-            Copyright © 2025. All Rights Reserved. Site by CAIR
+            {t('copyright')}
           </p>
         </div>
       </div>

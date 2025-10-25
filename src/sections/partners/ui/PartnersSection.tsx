@@ -1,24 +1,13 @@
 'use client';
 
 import { Container } from '@/components/landing/ui/Container';
-import { motion, useInView } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { useRef } from 'react';
 import { PartnerCard } from './PartnerCard';
 
-const letterVariant = {
-  initial: { y: 50, opacity: 0 },
-  animate: (i: number) => ({
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      delay: i * 0.05,
-      ease: [0.4, 0, 0.2, 1] as const,
-    },
-  }),
-};
-
 export function PartnersSection() {
+  const t = useTranslations('partners');
+
   const partners = [
     {
       id: 'partner-1',
@@ -54,28 +43,15 @@ export function PartnersSection() {
   ];
 
   const titleRef = useRef(null);
-  const isTitleInView = useInView(titleRef, { once: true, amount: 0.5 });
-  const title = 'Partners';
 
   return (
-    <section id={"partners"} className='text-white snap-start h-screen flex'>
+    <section id={'partners'} className='text-white snap-start h-screen flex'>
       <Container className={'flex flex-col justify-center items-center'}>
         <h2
           ref={titleRef}
           className='text-center -mt-20 tracking-[-0.2rem] leading-6 font-semibold text-7xl mb-10 flex justify-center gap-1'
         >
-          {title.split('').map((letter, index) => (
-            <motion.span
-              key={index}
-              variants={letterVariant}
-              initial='initial'
-              animate={isTitleInView ? 'animate' : 'initial'}
-              custom={index}
-              className='inline-block'
-            >
-              {letter === ' ' ? '\u00A0' : letter}
-            </motion.span>
-          ))}
+          {t('title')}
         </h2>
         <div className='flex flex-nowrap gap-24 justify-center items-start mx-auto'>
           {partners.map((partner, index) => (
