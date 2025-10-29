@@ -30,21 +30,21 @@ export function NumberCard({ hasBorder, num, text }: NumberCardProps) {
             initial={{ opacity: 0, y: 80 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className={`flex flex-col text-center justify-center p-10 w-md rounded-3xl items-center ${
+            className={`flex flex-col text-center gap-5 justify-center p-10 md:w-md rounded-3xl items-center ${
                 hasBorder
                     ? "border-2 bg-white/10 backdrop-blur-2xl shadow-2xl border-white/20"
                     : ""
             }`}
         >
             <motion.h1
-                className="text-9xl font-bold"
+                className="md:text-9xl text-8xl font-bold"
                 style={{
-                    y: useTransform(count, latest => 20 - latest * 0.2), // легкий эффект “подъёма” цифр
+                    y: useTransform(count, latest => 20 - latest * 0.2),
                 }}
             >
                 {rounded}
             </motion.h1>
-            <h3 className="text-3xl uppercase font-medium">{text}</h3>
+            <h3 className="md:text-3xl text-xl uppercase font-medium">{text}</h3>
         </motion.div>
     );
 }

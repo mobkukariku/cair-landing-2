@@ -17,16 +17,17 @@ export function ServiceSection() {
 
 
     return (
-        <section id={"services"} className="text-white max-md:my-50 h-full flex flex-col snap-start">
-            <Container className={"flex flex-grow flex-col items-center justify-center -mt-30"}>
-                <h2 className="text-center font-bold  text-7xl">{t("title")}</h2>
-                <div className="mt-30 flex flex-wrap gap-10 justify-center max-w-6xl mx-auto">
+        <section id={"services"} className="text-white my-20 h-fit w-full flex flex-col snap-start">
+            <Container className={"flex flex-grow flex-col w-full items-center justify-center -mt-30"}>
+                <h2 className="text-center font-bold w-full  md:text-7xl text-4xl">{t("title")}</h2>
+                <div className="md:mt-30 mt-10 flex flex-wrap gap-10 justify-center w-full md:max-w-6xl mx-auto">
                     {services.map((item, i) => (
                         <motion.div
                             key={item.id}
                             custom={i}
                             initial="hidden"
                             whileInView="visible"
+                            className={"max-md:w-full "}
                             viewport={{ once: true }}
                             variants={sectionsVariants}
                         >
