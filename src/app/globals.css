@@ -37,9 +37,8 @@ body {
     overflow: hidden;
   margin: 0;
   padding: 0;
-  background: #000;
+  background-color: #243B76;
   color: white;
-  background: black;
   scroll-behavior: smooth;
 }
 
@@ -123,6 +122,8 @@ body {
   width: 0;
   height: 0;
 }
+
+
 
 .gradient-bg .gradients-container {
   filter: url(#goo) blur(40px);
@@ -236,3 +237,4 @@ body {
   left: -50%;
   opacity: 0.6;
 }
+
