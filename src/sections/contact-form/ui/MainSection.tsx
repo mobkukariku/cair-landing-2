@@ -7,7 +7,7 @@ export default function Form() {
     <section
       id={'contact'}
       className={
-        'h-screen flex flex-col snap-start justify-center items-center'
+        'min-h-screen flex flex-col snap-start justify-center items-center py-12 md:py-0'
       }
     >
       <Container className='px-6 xl:px-0'>

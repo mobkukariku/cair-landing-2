@@ -1,5 +1,38 @@
 {
   "title": "Our Partners",
   "subtitle": "Trusted by leading companies",
-  "description": "We work with industry leaders to deliver exceptional results. Our partnerships are built on trust, innovation, and mutual success."
+  "description": "We work with industry leaders to deliver exceptional results. Our partnerships are built on trust, innovation, and mutual success.",
+  "items": {
+    "partner-1": {
+      "title": "FREEDOM HOLDING CORP.",
+      "shortDescription": "762 m² space and ~$150K equipment; joint DS/DE/BA courses; goal — grow talent and analytical thinking",
+      "description": "762 m² of space and ~$150K worth of equipment; joint DS/DE/BA courses for employees and students; the goal is to train specialists and develop analytical thinking.",
+      "tech": [
+        "Data Science",
+        "Data Engineering",
+        "Business Analytics",
+        "Upskilling",
+        "Education"
+      ]
+    },
+    "partner-2": {
+      "title": "SDU UNIVERSITY",
+      "shortDescription": "AI adoption and process automation; analytics systems, chatbots, knowledge bases",
+      "description": "We implement AI and automate internal processes; develop and support analytics systems, chatbots, and knowledge bases; the university provides resources and support.",
+      "tech": [
+        "AI",
+        "Automation",
+        "Analytics Systems",
+        "Chatbots",
+        "Knowledge Base",
+        "Ops Support"
+      ]
+    },
+    "partner-3": {
+      "title": "qCloudy",
+      "shortDescription": "Official AWS partner in KZ: joint AI/ML cloud projects, workshops and courses",
+      "description": "Official AWS partner in Kazakhstan: joint AI/ML projects in the cloud, workshops and courses; access to AWS Academy, certifications, vouchers and corporate accounts.",
+      "tech": ["AWS", "Cloud", "DevOps", "MLOps", "Training", "Certifications"]
+    }
+  }
 }
