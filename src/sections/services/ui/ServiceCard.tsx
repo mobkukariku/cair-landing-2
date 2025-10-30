@@ -21,7 +21,7 @@ export function ServiceCard({id, iconSrc, title,  onClick}: ServiceCardProps) {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="none"
-                    className="bg-white p-1 w-[20px] md:w-[28px] h-fit text-black/100 rounded-full"
+                    className="bg-white p-1 w-[20px] h-[20px] md:w-[28px]  text-black/100 rounded-full"
                     stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"

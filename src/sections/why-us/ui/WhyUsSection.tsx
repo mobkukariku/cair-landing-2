@@ -17,9 +17,9 @@ export function WhyUsSection() {
     ];
 
     return (
-        <section id="why-us" className="snap-start h-fit justify-center md:flex flex-col">
+        <section id="why-us" className="snap-start md:h-screen h-fit justify-center md:flex flex-col">
             <Container className="flex flex-col gap-20 md:justify-center md:items-center">
-                <h2 className="text-center font-bold mt-20 text-4xl md:text-7xl">
+                <h2 className="text-center font-bold mt-20 md:mt-0 text-4xl md:text-7xl">
                     {t("title")}
                 </h2>
 
