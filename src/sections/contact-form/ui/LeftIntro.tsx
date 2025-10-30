@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 // Анимация подъёма для элементов
@@ -32,12 +33,13 @@ const letterVariant = {
 };
 
 export default function LeftIntro() {
+  const t = useTranslations('contactForm');
   const ref = React.useRef<HTMLDivElement | null>(null);
   const titleRef = React.useRef<HTMLHeadingElement | null>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
   const isTitleInView = useInView(titleRef, { once: true, amount: 0.5 });
 
-  const title = "Let's Start";
+  const title = t('title');
 
   const elements = [
     // Контакты
@@ -100,7 +102,7 @@ export default function LeftIntro() {
     shadow-[inset_0_0_10px_rgba(255,255,255,0.05),0_0_15px_rgba(0,0,0,0.2)]
   '
     >
-      <span className='font-medium text-[19px]'>Explore Services</span>
+      <span className='font-medium text-[19px]'>{t('subtitle')}</span>
       <svg
         viewBox='0 0 24 24'
         className='w-5 h-5'
@@ -122,9 +124,9 @@ export default function LeftIntro() {
       {/* Заголовок с анимацией букв */}
       <h1
         ref={titleRef}
-        className='text-6xl sm:text-7xl mb-12 tracking-[-0.3rem] leading-6 sm:text-[70px] lg:text-[80px] font-bold text-white flex flex-wrap gap-1'
+        className='text-6xl sm:text-7xl mb-12 tracking-[-0.3rem] text-nowrap leading-14 sm:text-[70px] lg:text-[80px] font-bold text-white flex flex-wrap gap-1'
       >
-        {title.split('').map((letter, index) => (
+        {title.split('').map((letter: string, index: number) => (
           <motion.span
             key={index}
             variants={letterVariant}

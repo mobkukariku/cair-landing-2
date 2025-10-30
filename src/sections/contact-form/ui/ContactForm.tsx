@@ -1,6 +1,7 @@
 'use client';
 
 import { easeOut, motion, useInView } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const pullupVariant = {
@@ -13,6 +14,7 @@ const pullupVariant = {
 };
 
 export default function ContactForm() {
+  const t = useTranslations('contactForm.form');
   const ref = React.useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
 
@@ -21,7 +23,7 @@ export default function ContactForm() {
     <label key='name' className='flex flex-col gap-2'>
       <input
         type='text'
-        placeholder='Name'
+        placeholder={t('name')}
         className='
           bg-transparent outline-none
           pb-2 pt-1 text-[19px] font-medium text-white
@@ -38,7 +40,7 @@ export default function ContactForm() {
     <label key='email' className='flex flex-col gap-2'>
       <input
         type='email'
-        placeholder='Email'
+        placeholder={t('email')}
         className='
           bg-transparent outline-none
           pb-2 pt-1 text-[19px] font-medium text-white
@@ -55,7 +57,7 @@ export default function ContactForm() {
     <label key='phone' className='flex flex-col gap-2'>
       <input
         type='tel'
-        placeholder='Phone'
+        placeholder={t('phone')}
         className='
           bg-transparent outline-none
           pb-2 pt-1 text-[19px] font-medium text-white
@@ -71,7 +73,7 @@ export default function ContactForm() {
     // Message (input to match your current structure)
     <label key='message' className='flex flex-col gap-2'>
       <input
-        placeholder='Message'
+        placeholder={t('message')}
         className='
           bg-transparent outline-none
           pb-2 pt-1 text-[19px] font-medium text-white
@@ -110,7 +112,7 @@ export default function ContactForm() {
             custom={0}
             className='font-medium text-nowrap mb-10 text-[27px] tracking-tight text-white'
           >
-            Want Free Consultation?
+            {t('submit')}
           </motion.h3>
 
           {/* Fields */}
@@ -154,7 +156,7 @@ export default function ContactForm() {
                   shadow-[inset_0_0_10px_rgba(255,255,255,0.05),0_0_15px_rgba(0,0,0,0.2)]
                 '
               >
-                <span>Sent Message</span>
+                <span>{t('submit')}</span>
                 <svg
                   viewBox='0 0 24 24'
                   className='w-5 h-5'

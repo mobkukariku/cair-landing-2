@@ -7,6 +7,7 @@ import { useState } from 'react';
 interface PartnerCardProps {
   logo: string;
   title: string;
+  shortDescription: string;
   description: string;
   tech: string[];
   index: number;
@@ -15,6 +16,7 @@ interface PartnerCardProps {
 export function PartnerCard({
   logo,
   title,
+  shortDescription,
   description,
   tech,
   index,
@@ -31,7 +33,7 @@ export function PartnerCard({
         e.stopPropagation();
         setIsExpanded(!isExpanded);
       }}
-      className='flex flex-col items-center gap-3 relative'
+      className='flex flex-col items-center md:mb-0 mb-20 gap-3 relative'
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-100px' }}
@@ -48,7 +50,7 @@ export function PartnerCard({
           scale: isExpanded ? 0.8 : 1,
         }}
         transition={{ duration: 0.4, ease: [0.2, 0.6, 0.3, 1] }}
-        className={`relative flex flex-col items-center justify-center overflow-hidden w-[420px] ${
+        className={`relative flex flex-col items-center justify-center overflow-hidden w-full max-w-[420px] ${
           title === 'FREEDOM HOLDING CORP.' ? 'scale-150' : ''
         }`}
         style={{ height: isExpanded ? 0 : 368 }}
@@ -64,7 +66,7 @@ export function PartnerCard({
 
       {/* Glass Card */}
       <motion.div
-        className='w-[420px]'
+        className='w-full max-w-[420px]'
         style={{
           position: isExpanded ? 'absolute' : 'relative',
           bottom: 0,
@@ -75,8 +77,9 @@ export function PartnerCard({
         transition={{ duration: 0.5, ease: [0.1, 0.5, 0.4, 1] }}
       >
         <div
-          className='bg-white/15 backdrop-blur-xl rounded-3xl border border-white/30 shadow-2xl relative overflow-hidden h-full
-                        px-10 py-10'
+          className={`bg-white/15 backdrop-blur-xl rounded-3xl border border-white/30 shadow-2xl relative overflow-hidden h-full px-8 ${
+            isExpanded ? 'py-8' : 'py-10'
+          }`}
         >
           {!isExpanded && (
             <div className='flex flex-col h-full justify-between gap-4'>
@@ -92,7 +95,7 @@ export function PartnerCard({
                 )}
               </h3>
               <p className='text-[26px] leading-[1.15] text-white font-medium text-center line-clamp-3 flex-1 flex items-center justify-center'>
-                {description}
+                {shortDescription}
               </p>
             </div>
           )}
@@ -125,7 +128,7 @@ export function PartnerCard({
                   transition={{ duration: 0.25, delay: 0.12 }}
                   className='col-span-9 text-white text-right uppercase
                               font-extrabold tracking-wide justify-end
-                              text-[28px] leading-[1.05] md:text-[36px] flex items-center break-words'
+                              text-[32px] leading-[1.05] md:text-[36px] flex items-center break-words'
                 >
                   {title}
                 </motion.h3>
@@ -135,8 +138,8 @@ export function PartnerCard({
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.25, delay: 0.18 }}
-                className='text-white text-center font-medium
-                            text-[20px] md:text-[26px] leading-[1.15]
+                className='text-white text-start font-medium
+                            text-[24px] md:text-[25px] leading-[1.15]
                             mt-4 px-2'
               >
                 {description}
@@ -148,7 +151,7 @@ export function PartnerCard({
                 transition={{ duration: 0.25, delay: 0.24 }}
                 className='mt-auto text-left'
               >
-                <p className='text-white font-medium text-[26px] leading-[1.35]'>
+                <p className='text-white font-medium text-[24px] md:text-[25px] leading-[1.35]'>
                   Technologies: {tech.join(', ')}
                 </p>
               </motion.div>
