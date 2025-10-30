@@ -39,7 +39,7 @@ export function PartnersSection() {
       <Container className={'flex flex-col justify-center items-center'}>
         <h2
           ref={titleRef}
-          className='text-center md:-mt-20 -mt-2 tracking-[-0.2rem] leading-6 font-semibold text-6xl md:text-7xl mb-10 flex justify-center gap-1'
+          className='text-center md:-mt-20 -mt-2 tracking-[-0.2rem] leading-14 font-semibold text-6xl md:text-7xl mb-10 flex justify-center gap-1'
         >
           {t('title')}
         </h2>
