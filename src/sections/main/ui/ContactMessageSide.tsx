@@ -23,23 +23,30 @@ export function ContactMessageSide() {
     return (
     <motion.aside
         key={key}
-        className="flex flex-col gap-5 w-[400px]"
+        className="flex flex-col gap-5 w-full md:w-[400px]"
         aria-label="Summary and contact"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false }}
     >
+        <motion.p
+            variants={messageVariants}
+            className="md:text-lg md:hidden font-medium max-w-[250px] leading-6"
+        >
+            {t("sub-title")}
+        </motion.p>
+
       <motion.p
         variants={messageVariants}
-        className="text-lg font-medium max-w-[250px] leading-6"
+        className="md:text-lg font-medium max-md:text-right max-md:self-end max-w-[250px] leading-6"
       >
           {t("messages.message-1")}
       </motion.p>
 
       <motion.p
         variants={messageVariants}
-        className="text-lg font-medium self-end text-right max-w-[250px] leading-6"
+        className="md:text-lg font-medium md:self-end  md:text-right max-w-[250px] leading-6"
       >
           {t("messages.message-2")}
       </motion.p>

@@ -2,14 +2,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
+import {navItems} from "@/sections/header/model/constants";
 
-const navItems = [
-    { label: "home", id: "home" },
-    { label: "services", id: "services" },
-    { label: "why-us", id: "why-us" },
-    { label: "partners", id: "partners" },
-    { label: "contact", id: "contact" },
-];
 
 export function Navbar() {
     const [active, setActive] = useState("home");
