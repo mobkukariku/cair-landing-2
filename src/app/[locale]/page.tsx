@@ -8,7 +8,7 @@ import {WhyUsSection} from "@/sections/why-us/ui/WhyUsSection";
 
 export default function Home() {
   return (
-      <div className="h-screen overflow-y-scroll min-[768px]:snap-y min-[768px]:snap-mandatory">
+      <div className="h-screen md:overflow-y-auto min-[768px]:snap-y min-[768px]:snap-mandatory">
           <Header />
           <MainSection />
           <ServiceSection />

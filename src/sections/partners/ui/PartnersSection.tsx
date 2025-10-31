@@ -34,9 +34,9 @@ export function PartnersSection() {
   return (
     <section
       id={'partners'}
-      className='text-white snap-start min-h-screen flex py-12 md:py-0'
+      className='text-white w-fit flex flex-col justify-center items-center snap-start min-h-screen flex py-12 md:py-0'
     >
-      <Container className={'flex flex-col justify-center items-center'}>
+      <Container className={''}>
         <h2
           ref={titleRef}
           className='text-center md:-mt-20 -mt-2 tracking-[-0.2rem] leading-14 font-semibold text-6xl md:text-7xl mb-10 flex justify-center gap-1'
