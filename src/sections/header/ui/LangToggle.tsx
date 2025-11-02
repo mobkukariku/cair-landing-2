@@ -12,7 +12,7 @@ export function LangToggle() {
     const { currentLocale, switchLocale } = useLangSwitch();
 
     return (
-        <div className="flex gap-3">
+        <div className="flex max-md:p-5 md:gap-3 gap-10">
             {Object.entries(langs).map(([key, label]) => (
                 <button
                     key={key}
