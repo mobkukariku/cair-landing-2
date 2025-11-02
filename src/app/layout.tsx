@@ -15,7 +15,6 @@ export default function RootLayout({
     <html lang='en' suppressHydrationWarning>
       <body className={`antialiased`} suppressHydrationWarning>
         <div
-          className={'text-container'}
           style={{ position: 'relative', zIndex: 1 }}
         >
           {children}
