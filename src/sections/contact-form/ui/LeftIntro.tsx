@@ -124,7 +124,7 @@ export default function LeftIntro() {
       {/* Заголовок с анимацией букв */}
       <h1
         ref={titleRef}
-        className='text-6xl sm:text-7xl mb-12 tracking-[-0.3rem] text-nowrap leading-14 sm:text-[70px] lg:text-[80px] font-bold text-white flex flex-wrap gap-1'
+        className='text-4xl sm:text-7xl mb-4 md:mb-12 tracking-[-0.3rem] leading-14 sm:text-[70px] lg:text-[80px] font-bold text-white flex flex-wrap gap-1'
       >
         {title.split('').map((letter: string, index: number) => (
           <motion.span

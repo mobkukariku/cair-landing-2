@@ -9,6 +9,7 @@
     "company": "Company Name",
     "message": "Your Message",
     "submit": "Send Message",
+    "submit-short": "Send",
     "required": "This field is required",
     "invalidEmail": "Please enter a valid email address",
     "success": "Thank you! Your message has been sent successfully.",

@@ -50,7 +50,7 @@ export function PartnerCard({
           scale: isExpanded ? 0.8 : 1,
         }}
         transition={{ duration: 0.4, ease: [0.2, 0.6, 0.3, 1] }}
-        className={`relative flex flex-col items-center justify-center overflow-hidden w-full md:max-w-[420px] max-w-[220px] ${
+        className={`relative flex flex-col items-center justify-center overflow-hidden w-full max-w-[240px] md:max-w-[420px] ${
           title === 'FREEDOM HOLDING CORP.' ? 'scale-150' : ''
         }`}
         style={{ height: isExpanded ? 0 : 368 }}
@@ -94,7 +94,7 @@ export function PartnerCard({
                   title
                 )}
               </h3>
-              <p className='text-[26px] leading-[1.15] text-white font-medium text-center line-clamp-3 flex-1 flex items-center justify-center'>
+              <p className='md:text-[24px] text-[20px] leading-[1.15] text-white font-medium text-center line-clamp-3 flex-1 flex items-center justify-center'>
                 {shortDescription}
               </p>
             </div>
@@ -139,7 +139,7 @@ export function PartnerCard({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.25, delay: 0.18 }}
                 className='text-white text-start font-medium
-                            text-[24px] md:text-[25px] leading-[1.15]
+                            text-[22px] md:text-[25px] leading-[1.15]
                             mt-4 px-2'
               >
                 {description}
@@ -151,7 +151,7 @@ export function PartnerCard({
                 transition={{ duration: 0.25, delay: 0.24 }}
                 className='mt-auto text-left'
               >
-                <p className='text-white font-medium text-[24px] md:text-[25px] leading-[1.35]'>
+                <p className='text-white font-medium text-[22px] md:text-[25px] leading-[1.35]'>
                   Technologies: {tech.join(', ')}
                 </p>
               </motion.div>

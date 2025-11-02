@@ -26,7 +26,7 @@ export default function ContactForm() {
         placeholder={t('name')}
         className='
           bg-transparent outline-none
-          pb-2 pt-1 text-[19px] font-medium text-white
+          pb-2 pt-1 text-[16px] md:text-[19px] font-medium text-white
           placeholder:text-white/50
           border-0
           [background:linear-gradient(90deg,rgba(180,220,255,0.6),rgba(120,180,255,0.25))_left_bottom/100%_2px_no-repeat]
@@ -43,7 +43,7 @@ export default function ContactForm() {
         placeholder={t('email')}
         className='
           bg-transparent outline-none
-          pb-2 pt-1 text-[19px] font-medium text-white
+          pb-2 pt-1 text-[16px] md:text-[19px] font-medium text-white
           placeholder:text-white/50
           border-0
           [background:linear-gradient(90deg,rgba(180,220,255,0.6),rgba(120,180,255,0.25))_left_bottom/100%_2px_no-repeat]
@@ -60,7 +60,7 @@ export default function ContactForm() {
         placeholder={t('phone')}
         className='
           bg-transparent outline-none
-          pb-2 pt-1 text-[19px] font-medium text-white
+          pb-2 pt-1 text-[16px] md:text-[19px] font-medium text-white
           placeholder:text-white/50
           border-0
           [background:linear-gradient(90deg,rgba(180,220,255,0.6),rgba(120,180,255,0.25))_left_bottom/100%_2px_no-repeat]
@@ -76,7 +76,7 @@ export default function ContactForm() {
         placeholder={t('message')}
         className='
           bg-transparent outline-none
-          pb-2 pt-1 text-[19px] font-medium text-white
+          pb-2 pt-1 text-[16px] md:text-[19px] font-medium text-white
           placeholder:text-white/50
           border-0
           [background:linear-gradient(90deg,rgba(180,220,255,0.6),rgba(120,180,255,0.25))_left_bottom/100%_2px_no-repeat]
@@ -110,7 +110,7 @@ export default function ContactForm() {
             initial='initial'
             animate={inView ? 'animate' : undefined}
             custom={0}
-            className='font-medium text-nowrap mb-10 text-[27px] tracking-tight text-white'
+            className='font-medium text-nowrap mb-10 text-center md:text-left text-[22px] md:text-[27px] tracking-tight text-white'
           >
             {t('submit')}
           </motion.h3>
@@ -146,7 +146,7 @@ export default function ContactForm() {
                   inline-flex items-center justify-center gap-2
                   px-10 py-2
                   rounded-full
-                  text-white font-medium text-[18px]
+                  text-white font-medium text-[16px] md:text-[19px]
                   border border-white/20
                   bg-white/5
                   backdrop-blur-xl
@@ -156,7 +156,7 @@ export default function ContactForm() {
                   shadow-[inset_0_0_10px_rgba(255,255,255,0.05),0_0_15px_rgba(0,0,0,0.2)]
                 '
               >
-                <span>{t('submit')}</span>
+                <span>{t('submit-short')}</span>
                 <svg
                   viewBox='0 0 24 24'
                   className='w-5 h-5'
