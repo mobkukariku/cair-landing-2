@@ -5,8 +5,8 @@ import {LangToggle} from "@/sections/header/ui/LangToggle";
 
 export function DesktopHeader() {
     return (
-        <Container className={"snap-start"}>
-            <header className={"flex justify-between items-center py-10"} >
+        <Container >
+            <header className={"flex snap-start justify-between items-center py-10"} >
                 <Image src={"logo.svg"} alt={"logo"} width={150} height={150} />
                 <Navbar />
                 <LangToggle />

@@ -21,14 +21,15 @@ export function ServiceCard({id, iconSrc, title,  onClick}: ServiceCardProps) {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="none"
-                    className="bg-white p-1 w-[20px] h-[20px] md:w-[28px]  text-black/100 rounded-full"
                     stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    className="w-5 md:w-7 h-auto p-1 bg-white text-black rounded-full"
                 >
                     <polyline points="6 9 12 15 18 9" />
                 </svg>
+
             </div>
         </motion.div>
     )

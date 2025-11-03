@@ -9,36 +9,37 @@ export function MobileHeader() {
     const [open, setOpen] = useState(false);
 
     return (
-        <Container className="flex  mt-5 mb-20 justify-center">
-            <header className="rounded-full z-50 fixed w-[85%] justify-between h-14 px-6 bg-white/10 border border-white/50 backdrop-blur-md flex gap-2 items-center">
-                <Image src="/logo.svg" alt="logo" width={97} height={35} />
-                <motion.button
-                    whileTap={{ scale: 0.9 }}
-                    onClick={() => setOpen(!open)}
-                    className="p-2"
-                >
-                    <Image
-                        src={open ? "/menu-close.svg" : "/menu-burger.svg"}
-                        alt="menu-icon"
-                        width={20}
-                        height={20}
-                    />
-                </motion.button>
-            </header>
-
-            <AnimatePresence>
-                {open && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.3, ease: "easeOut" }}
-                        className="absolute z-40 top-25 w-full flex justify-center"
+        <Container className="flex snap-start mt-5 mb-20 justify-center">
+            <header className=" fixed  z-50 w-full h-14">
+                <div className={"rounded-full justify-between px-6 py-2 w-[85%] mx-auto  bg-white/10 border border-white/50 backdrop-blur-md flex gap-2 items-center"}>
+                    <Image src="/logo.svg" alt="logo" width={97} height={35} />
+                    <motion.button
+                        whileTap={{ scale: 0.9 }}
+                        onClick={() => setOpen(!open)}
+                        className="p-2"
                     >
-                        <MobileMenuItemsList  />
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                        <Image
+                            src={open ? "/menu-close.svg" : "/menu-burger.svg"}
+                            alt="menu-icon"
+                            width={20}
+                            height={20}
+                        />
+                    </motion.button>
+                </div>
+                <AnimatePresence>
+                    {open && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            className="absolute  z-40 top-20 w-full flex justify-center"
+                        >
+                            <MobileMenuItemsList  />
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </header>
         </Container>
     );
 }
