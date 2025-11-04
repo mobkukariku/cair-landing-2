@@ -1,9 +1,26 @@
+'use client';
 import { Container } from '@/components/landing/ui/Container';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { SiInstagram, SiLinkedin, SiTelegram } from 'react-icons/si';
 
 export default function Footer() {
   const t = useTranslations('footer');
+
+  const handleScroll = (id: string) => {
+    const section = document.getElementById(id);
+    section?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  // Map footer link keys to section IDs
+  const linkMap: Record<string, string> = {
+    home: 'home',
+    services: 'services',
+    whyUs: 'why-us',
+    partners: 'partners',
+    contact: 'contact',
+  };
+
   return (
     <footer
       className='w-full snap-start [scrollbar-width:none] [scroll-behavior:smooth] bg-[#01034D] text-white'
@@ -36,8 +53,22 @@ export default function Footer() {
               </h3>
               <div className='space-y-4 md:space-y-6 lg:space-y-8 text-[16px] md:text-[17px] lg:text-[18px] text-white font-medium'>
                 <p className='max-w-xs'>{t('office.address')}</p>
-                <p>{t('office.email')}</p>
-                <p>{t('office.phone')}</p>
+                <p>
+                  <a
+                    href='mailto:cair@sdu.edu.kz'
+                    className='hover:opacity-80 transition-opacity underline decoration-dotted'
+                  >
+                    {t('office.email')}
+                  </a>
+                </p>
+                <p>
+                  <a
+                    href='tel:+77776676904'
+                    className='hover:opacity-80 transition-opacity underline decoration-dotted'
+                  >
+                    {t('office.phone')}
+                  </a>
+                </p>
               </div>
             </div>
 
@@ -54,13 +85,13 @@ export default function Footer() {
                   { key: 'partners', label: t('links.partners') },
                   { key: 'contact', label: t('links.contact') },
                 ].map(item => (
-                  <a
+                  <button
                     key={item.key}
-                    href='#'
-                    className='block text-[16px] md:text-[17px] lg:text-[18px] text-white font-medium hover:opacity-80 transition-opacity'
+                    onClick={() => handleScroll(linkMap[item.key])}
+                    className='block text-[16px] md:text-[17px] lg:text-[18px] text-white font-medium hover:opacity-80 transition-opacity text-left w-full'
                   >
                     {item.label}
-                  </a>
+                  </button>
                 ))}
               </nav>
             </div>
@@ -72,24 +103,31 @@ export default function Footer() {
               </h3>
               <div className='flex gap-4 md:gap-5 lg:gap-6'>
                 {[
-                  { src: '/x-icon.svg', alt: 'X' },
-                  { src: '/inst-img.svg', alt: 'Instagram' },
-                  { src: '/tg-icon.svg', alt: 'Telegram' },
-                ].map(icon => (
+                  {
+                    Icon: SiLinkedin,
+                    alt: 'LinkedIn',
+                    href: 'https://www.linkedin.com',
+                  },
+                  {
+                    Icon: SiInstagram,
+                    alt: 'Instagram',
+                    href: 'https://www.instagram.com/sdu_ai_lab?igsh=MXc5ZDY0OGc2MHhrbw==',
+                  },
+                  {
+                    Icon: SiTelegram,
+                    alt: 'Telegram',
+                    href: 'https://t.me/sduailab',
+                  },
+                ].map(({ Icon, alt, href }) => (
                   <a
-                    key={icon.alt}
-                    href='#'
-                    className='w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 hover:opacity-80 transition-opacity'
-                    aria-label={icon.alt}
+                    key={alt}
+                    href={href}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 hover:opacity-80 transition-opacity text-white'
+                    aria-label={alt}
                   >
-                    <Image
-                      src={icon.src}
-                      alt={icon.alt}
-                      width={32}
-                      height={32}
-                      className='w-full h-full'
-                      suppressHydrationWarning
-                    />
+                    <Icon className='w-full h-full' />
                   </a>
                 ))}
               </div>

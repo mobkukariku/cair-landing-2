@@ -14,11 +14,7 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body className={`antialiased`} suppressHydrationWarning>
-        <div
-          style={{ position: 'relative', zIndex: 1 }}
-        >
-          {children}
-        </div>
+        <div style={{ position: 'relative', zIndex: 1 }}>{children}</div>
         <div className='gradient-bg'>
           <svg xmlns='http://www.w3.org/2000/svg'>
             <defs>
