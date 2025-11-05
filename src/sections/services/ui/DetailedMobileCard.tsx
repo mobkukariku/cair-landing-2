@@ -26,7 +26,7 @@ export function DetailedMobileCard({
     return (
         <AnimatePresence>
             <div
-                className="fixed inset-0 z-40  flex items-center justify-center bg-black/60 backdrop-blur-sm"
+                className="fixed inset-0 z-[600]  flex items-center justify-center bg-black/60 backdrop-blur-sm"
                 onClick={onClick}
             >
                 <motion.div
@@ -34,7 +34,7 @@ export function DetailedMobileCard({
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.9, y: 50 }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="relative h-[60%] overflow-y-auto  w-[90%] p-5 border border-white/30 bg-white/10 rounded-3xl shadow-2xl scrollbar-thin scrollbar-thumb-white/30 scrollbar-track-transparent"
+                    className="relative h-[70%] overflow-y-auto  w-[90vw] p-5 border border-white/30 bg-white/10 rounded-3xl shadow-2xl scrollbar-thin scrollbar-thumb-white/30 scrollbar-track-transparent"
                 >
                     <div className="flex flex-col items-center text-center">
                         <Image src={iconSrc} alt={title} width={60} height={60} />
