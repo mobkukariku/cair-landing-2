@@ -10,7 +10,7 @@ export function MobileHeader() {
 
     return (
         <Container className="flex snap-start mt-5 mb-20 justify-center">
-            <header className=" fixed  z-50 w-full h-14">
+            <header className=" fixed  z-30 w-full h-14">
                 <div className={"rounded-full justify-between px-6 py-2 w-[85%] mx-auto  bg-white/10 border border-white/50 backdrop-blur-md flex gap-2 items-center"}>
                     <Image src="/logo.svg" alt="logo" width={97} height={35} />
                     <motion.button

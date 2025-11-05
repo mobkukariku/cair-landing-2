@@ -8,10 +8,15 @@ import {AnimatePresence} from "framer-motion";
 import {DetailedCard} from "@/sections/services/ui/DetailedCard";
 import {useTranslations} from "next-intl";
 import {sectionsVariants} from "@/sections/services/model/variants";
+import {useMediaQuery} from "@/hooks/useMediaQuery";
+import {DetailedMobileCard} from "@/sections/services/ui/DetailedMobileCard";
 
 
 export function ServiceSection() {
     const [openId, setOpenId] = useState<string | null>(null);
+
+    const isMobile = useMediaQuery("(max-width: 768px)");
+
 
     const t = useTranslations("services");
 
@@ -47,7 +52,7 @@ export function ServiceSection() {
                         />
                     )}
 
-                    {openId && (
+                    {openId && !isMobile && (
                         <DetailedCard
                             iconSrc={services.find(s => s.id === openId)?.iconSrc || ""}
                             title={services.find(s => s.id === openId)?.title || ""}
@@ -58,6 +63,16 @@ export function ServiceSection() {
                         />
                     )}
                 </AnimatePresence>
+                {openId && isMobile && (
+                    <DetailedMobileCard
+                        iconSrc={services.find(s => s.id === openId)?.iconSrc || ""}
+                        title={services.find(s => s.id === openId)?.title || ""}
+                        stack={services.find(s => s.id === openId)?.stack || []}
+                        description={services.find(s => s.id === openId)?.description || []}
+                        id={openId}
+                        onClick={() => setOpenId(null)}
+                    />
+                )}
             </Container>
         </section>
     )
