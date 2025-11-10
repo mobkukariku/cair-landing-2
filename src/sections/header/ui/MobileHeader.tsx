@@ -35,7 +35,7 @@ export function MobileHeader() {
                             transition={{ duration: 0.3, ease: "easeOut" }}
                             className="absolute  z-40 top-20 w-full flex justify-center"
                         >
-                            <MobileMenuItemsList  />
+                            <MobileMenuItemsList setOpen={setOpen} />
                         </motion.div>
                     )}
                 </AnimatePresence>
